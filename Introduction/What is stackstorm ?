@@ -1,0 +1,20 @@
+StackStorm is a powerful open-source event-driven automation platform written in Python with a mission to solve modern development, operations and system integration challenges.
+We can tie together out existing infrastructure and application environment using StackStorm.
+ So that we can more easily automate that environment - with a particular focus on taking actions in response to events. 
+So, StackStorm is like IFTTT (If-This-Than-That) tool for DevOps and Infrastructure.
+Suppose, if you don't want to wait for events, then youcan schedule tasks to run like cron jobs.
+We can also execute tasks manually using StackStorm web UI, CLI and API’s.
+Here, API’s are the  key feature of StackStorm because using API’s we can easily integrate external applications with StackStorm.
+
+
+
+Concepts:
+========
+          Packs
+          Actions
+          Workflows
+          Rules
+          Triggers
+          Sensors
+          Webhooks
+          ChatOps
