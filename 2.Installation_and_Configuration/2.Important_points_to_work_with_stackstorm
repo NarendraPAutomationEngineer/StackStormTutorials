@@ -1,19 +1,28 @@
+There are two ways to login into stackstorm:
+===========================================
+   WebUI 
+   Command Line Interface(CLI)
+WebUI - http://hostname:80/
+CLI:  st2 login <user_name> -p <password>
+    Note: This login is valid for 24hrs.  
+
+How to Change Password for StackStorm ?
+   Run:Â sudoÂ htpasswdÂ /etc/st2/htpasswdÂ st2admin
+
 We have two types of CLIs on StackStorm Server.
-===============================================
-st2       -->  For User Automation
-st2ctl   -->  For StackStorm Administration
+----------------------------------------------
+st2ctl       -->  To work with StackStorm for Administartion/Configruation. (To get help: st2ctl --help)
+st2 	     -->  To Execute Automation Tasks.(To get help: st2 --help)
+
 
 Important paths:
-===============
-/opt/stackstorm
-/etc/st2
+================
+ /opt/stackstorm
+ /etc/st2
  /var/log/st2 
-Python Version is used by StackStorm
-Remove .st2 folder under root home or from where we ran quick install script.
+Python Version is used by StackStorm:
+    st2 --version 
+    /opt/stackstorm/st2/bin/python3 --version
 
-Need to change the password? 
----------------------------
-Run: sudo htpasswd /etc/st2/htpasswd st2admin
 
-st2 login is valid for 24hours
-      Because st2 login uses api token to validate credentials with stackstorm.
+Note: One-line/Quick Install process will automatically start stackstorm even if we reboot system.
