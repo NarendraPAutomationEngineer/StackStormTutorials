@@ -1,0 +1,10 @@
+Managing Actions:
+================
+     st2 action <…>
+     st2 action –h
+
+st2 action list
+st2 action list -p <pack_name>  or st2 action list --pack=<pack_name>
+st2 action get pack_name.action_name 
+======================================================================
+Will see remaing st2 action commands in our later sessions.
