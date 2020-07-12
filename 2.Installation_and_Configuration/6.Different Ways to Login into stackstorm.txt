@@ -1,0 +1,15 @@
+Two types of CLI's:
+   st2ctl -h
+   st2 -h
+--------------------------
+
+There are two ways to login into StackStorm:
+	WebUI  (http://hostname:80/ )
+	Command Line Interface(CLI) (st2 login st2admin –p <password>
+
+How to change password of stackstorm ?
+
+Step1: login into root
+Step2: htpasswd /etc/st2/htpasswd st2admin
+       Provide new password and also confirm it.
+=====================================================
