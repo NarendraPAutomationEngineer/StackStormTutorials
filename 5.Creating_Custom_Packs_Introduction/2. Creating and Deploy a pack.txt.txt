@@ -1,0 +1,23 @@
+Creating Pack:
+==============
+     Create any folder name (ex: dummy)
+     cd dummy
+     Create pack.yaml file
+Deployment:
+===========
+From StackStorm Exchange:
+    st2 pack install <pack_name>
+From GitHub or Repo:
+   st2 pack install <location of repo >
+From StackStorm Server(Engine):
+   st2 pack install file://<location of pack.yaml file>
+
+Copy pack directory to /opt/stackstorm/packs and run below command
+   st2 run packs.setup_virtualenv packs=<pack_name>
+   Reload Configurations by running st2ctl reload
+
+
+Remove a pack:
+=============
+   st2 pack remove <pack_name>
+

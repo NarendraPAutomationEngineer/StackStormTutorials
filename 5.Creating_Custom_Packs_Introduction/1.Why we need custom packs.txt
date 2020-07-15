@@ -1,0 +1,34 @@
+Nodes are REHL/CentOS:
+  (yum install httpd -y) from root
+==================================
+
+httpd -v
+
+systemctl status httpd
+
+systemctl start httpd
+
+systemctl stop httpd
+
+systemctl restart httpd
+===========================
+
+core --> remote
+     --> remote_sudo 
+
+172.31.6.107,172.31.41.24   
+
+
+ st2 run core.remote cmd="httpd -v | grep version|cut -d ' ' -f 3" hosts="172.31.6.107,172.31.41.24"
+ st2 run core.remote cmd="systemctl status httpd" hosts="172.31.6.107,172.31.41.24"
+ st2 run core.remote_sudo cmd="systemctl start httpd" hosts="172.31.6.107,172.31.41.24"
+ st2 run core.remote_sudo cmd="systemctl stop httpd" hosts="172.31.6.107,172.31.41.24"
+ st2 run core.remote_sudo cmd="systemctl restart httpd" hosts="172.31.6.107,172.31.41.24"  
+
+
+Custom Pack:
+===========
+st2 run httpd.action action=status hosts="172.31.6.107,172.31.41.24"
+===================================================================================================
+
+
