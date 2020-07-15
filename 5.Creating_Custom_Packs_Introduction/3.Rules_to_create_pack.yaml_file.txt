@@ -1,4 +1,13 @@
 https://docs.stackstorm.com/reference/packs.html
+Pack Name should only contain lowercase letters, digits and underscores.
+  
+      We have two options(keys) to provide name for a pack in pack.yaml file.
+      They are :
+           ref 
+           name
+
+
+Sample pack.yaml 
 ===================================================================================
 ---
 # Pack reference. It can only contain lowercase letters, digits and underscores.
