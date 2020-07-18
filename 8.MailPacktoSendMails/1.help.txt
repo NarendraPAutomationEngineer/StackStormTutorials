@@ -1,0 +1,8 @@
+Mail Command: echo "Demo" | mail -s "Status of Httpd" dowithscripting@gmail.com
+
+Note:
+ I am running my stackstorm engine on ubuntu now. if you are running stackstorm engine on different linux then reconfigure your environment by taking only stackstorm engine server as ubuntu.
+ Because on Ubuntu server simple we can configure our gamil configuration using below link.
+ 
+ https://developernote.com/2017/10/configuring-sendmail-with-gmail-relay-on-ubuntu-16-04/
+ 
