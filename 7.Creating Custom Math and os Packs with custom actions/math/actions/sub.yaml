@@ -1,0 +1,15 @@
+---
+name:  sub
+description: This action is used to find the sub of two number
+runner_type: "local-shell-script"
+enabled: true
+entry_point: "sub.sh"
+parameters:
+  num1:
+    type: integer
+    position: 0
+    required: true
+  num2:
+    type: integer 
+    position: 1
+    required: true

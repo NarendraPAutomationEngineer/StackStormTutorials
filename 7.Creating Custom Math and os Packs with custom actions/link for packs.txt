@@ -1,3 +1,0 @@
-Open this url for packs:
-
-https://github.com/NarendraPAutomationEngineer/StackStorm_Packs_for_Students_Practice

@@ -1,0 +1,12 @@
+---
+name: name
+description: This action is used to get the os name
+runner_type: "local-shell-cmd"
+enabled: true
+entry_point: ""
+parameters:
+   cmd:
+     type: string
+     default: cat /etc/os-release | grep -w "NAME=" |cut -d "=" -f 2
+     required: true
+     immutable: true

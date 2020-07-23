@@ -1,0 +1,12 @@
+---
+name:  status
+description: This action is used to verify the status of httpd 
+runner_type: "local-shell-cmd"
+enabled: true
+entry_point: ""
+parameters:
+   cmd:
+     type: string
+     default: "systemctl status httpd"
+     required: true
+     immutable: true

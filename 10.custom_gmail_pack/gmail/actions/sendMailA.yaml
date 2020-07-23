@@ -1,0 +1,25 @@
+---
+name: sendMailA
+description: Action to send a mail"
+runner_type: "local-shell-script"
+enabled: true
+entry_point: "sendmaila.sh"
+pack: gmail
+parameters:
+  ToMail:
+    type: string
+    required: true
+    position: 0
+  Subject:
+    type: string
+    required: true
+    position: 1
+  Body:
+    type: string
+    required: true
+    position: 2
+  Attach:
+    type: string
+    required: true
+    position: 3
+
