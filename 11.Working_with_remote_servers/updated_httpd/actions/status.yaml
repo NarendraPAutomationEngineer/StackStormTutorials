@@ -1,0 +1,6 @@
+---
+name:  status
+description: This action is used to verify the status of httpd 
+runner_type: "remote-shell-script"
+enabled: true
+entry_point: "status.sh"
