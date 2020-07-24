@@ -1,0 +1,16 @@
+---
+name: type
+description: Action is used to find the os type
+runner_type: "remote-shell-cmd"
+enabled: true
+entry_point: ""
+pack: os
+parameters:
+        cmd:
+          type: string
+          default: cat /etc/os-release | grep -w "NAME" | cut -d "=" -f 2
+          required: true
+          immutable: true 
+        hosts: 
+          type: string
+          required: true
