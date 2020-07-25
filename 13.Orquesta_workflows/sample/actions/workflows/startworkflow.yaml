@@ -1,0 +1,58 @@
+version: 1.0
+
+description: Simple workflow to start httpd if it is not running
+
+input:
+  - hosts
+  - ToMail
+tasks:
+  IsHttpdInstallled:
+    action: core.remote
+    input:
+      hosts: <% ctx(hosts) %>
+      cmd: "which httpd"
+    next:
+      - when: <% succeeded() %>
+        do: isRunning
+      - when: <% failed() %>
+        publish:
+          - Subject: "Httpd Start Status on  <% ctx(hosts) %>"
+          - Body: "Httpd is not installed on  <% ctx(hosts) %>"
+        do: SendMail
+  isRunning:
+    action: core.remote
+    input:
+      hosts: <% ctx(hosts) %>
+      cmd: "systemctl status httpd"
+    next:
+      - when: <% succeeded() %>
+        publish: 
+          - Subject: "Httpd Start Status on  <% ctx(hosts) %>"
+          - Body: "Httpd is already Running on <% ctx(hosts) %>"
+        do: SendMail
+      - when: <% failed() %>
+        do: StartHttpd
+  StartHttpd:
+    action: core.remote_sudo
+    input:
+      hosts: <% ctx(hosts) %>
+      cmd: "systemctl start httpd"
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - Subject: "Httpd Start Status on  <% ctx(hosts) %>"
+          - Body: "Httpd is started succcessfully and it is Up and Running on <% ctx(hosts) %>"        
+        do: SendMail
+      - when: <% failed() %>
+        publish:
+          - Subject: "Httpd Start Status on  <% ctx(hosts) %>"
+          - Body: "Httpd is failed to start on <% ctx(hosts) %>. Please Check it manually"
+        do: SendMail
+  SendMail:
+    action: gmail.sendMail
+    input:
+      ToMail: <% ctx(ToMail) %>
+      Subject: <% ctx(Subject) %>
+      Body: <% ctx(Body) %>
+output:
+  - stdout: <% ctx(Body) %>
