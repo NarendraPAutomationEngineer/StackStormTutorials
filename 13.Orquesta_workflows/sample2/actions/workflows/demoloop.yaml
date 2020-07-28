@@ -1,0 +1,13 @@
+version: 1.0
+description: simple workflow to understand loop concept
+input:
+ - cmds
+
+tasks:
+ TaskwithLoop:
+   action: core.local
+   with:
+     items: <% ctx(cmds) %>
+     concurrency: 2
+   input:
+     cmd: <% item() %> 

@@ -1,0 +1,13 @@
+---
+name: demo
+runner_type: "orquesta"
+entry_point: "workflows/demowf.yaml"
+enabled: true
+parameters:
+     x:
+       type: integer
+       required: true
+     y:
+       type: integer
+       default: 90
+       immutable: true

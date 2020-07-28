@@ -1,0 +1,6 @@
+---
+name: localwf
+description: This action is used to find the addition of two number
+runner_type: "orquesta"
+enabled: true
+entry_point: "workflows/localwf.yaml"

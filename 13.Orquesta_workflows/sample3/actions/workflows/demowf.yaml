@@ -1,0 +1,26 @@
+version: 1.0
+description: working with ctx fun
+input:
+ - x
+ - y
+vars:
+ - p: 5
+ - q: None
+
+tasks:
+ DemoTask:
+   action: core.noop
+   next:
+    - publish:
+        - a: 6
+        - b: 9
+ 
+output:
+        - ctxout: <% ctx() %>
+        - outp1: <% ctx(p) %>
+        - outp2: <% ctx().p %>
+        - outp3: <% ctx().get(p) %>
+          #- ctxoutj: "{{ ctx() }}"
+          # - keysctx: <% ctx().keys() %>
+          # - valuesctx: <% ctx().values() %>
+          #- itemsctx: <% ctx().items() %>
