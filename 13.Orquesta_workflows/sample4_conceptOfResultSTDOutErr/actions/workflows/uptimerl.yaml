@@ -1,0 +1,45 @@
+version: 1.0
+description: Simple wf to get stdout and stderr
+input:
+ - hosts
+#vars:
+tasks:
+  UptimeL:
+    action: core.local
+    input:
+       cmd: "uptime"
+    next:
+      - publish:
+           - resultl: <% result() %>
+           - sol: <% result().stdout %>
+           - sel: <% result().stderr %>
+              #- sol: <% task(UptimeL).result.stdout %>
+              #- sel: <% task(UptimeL).result.stdout %>
+  UptimeR:
+    action: core.remote
+    input:
+      cmd: "uptime"
+      hosts: <% ctx(hosts) %>
+    next:
+       - publish:
+          - resultr: <% result().values() %>
+          - resultonindex: <% ctx(resultr)[0] %>
+          - sor: <% ctx(resultonindex).stdout %>
+          - ser: <% ctx(resultonindex).stderr %>
+output:
+        # - UptimeResultL: <% task(UptimeL).result %>
+        #- stdoutl:  <% task(UptimeL).result.stdout %>
+        #- stderrl:  <% task(UptimeL).result.stderr %>
+        #- UptimeResultR: <% task(UptimeR).result %>
+        #- ValueusR: <% task(UptimeR).result.values() %>
+        #- ResultR: <% ctx(ValueusR)[0] %>
+        #- stdoutr: <% ctx(ResultR).stdout %>
+        #- stderrr: <% ctx(ResultR).stderr %>
+        
+        #Below result are using result funtion
+        - LocalActionResult: <% ctx(resultl) %>
+        - RemoteActionResult: <% ctx(resultr) %>
+        - LocalActionSTDOUT: <% ctx(sol) %>
+        - LocalActionSTDERR: <% ctx(sel) %>
+        - RemoteActionSTDOUT: <% ctx(sor) %>
+        - RemoteActionSTDERR: <% ctx(ser) %>
