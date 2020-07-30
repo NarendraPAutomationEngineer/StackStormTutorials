@@ -1,0 +1,17 @@
+---
+ref: yaql
+name : yaql
+description : This pack is used verify httpd installation, version and status
+keywords:
+  - yaql
+
+version : 1.0.0
+author : NarendraP AutomationEngineer.
+email : dowithscripting@gmail.com
+python_versions:
+  - "2"
+  - "3"
+contributors:
+  - "SriVastav<srivastav@gmail.com>"
+  - "Nanu <nanudec12@gmail.com>"
+

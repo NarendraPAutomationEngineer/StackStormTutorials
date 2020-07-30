@@ -1,0 +1,32 @@
+version: 1.0
+description: Executing muti cmds using loop called with
+input:
+   - cmds
+   - host
+vars:
+   - LR: None
+   - RR: None
+tasks: 
+   CmdsOnLocalServer:
+      action: core.local
+      input:
+        cmd: <% item(each_cmd) %>
+      with: each_cmd in <% ctx(cmds) %>
+     
+      next:
+         - publish:
+              - LR: <% result() %>  
+   CmdsOnRemoteServer:
+      action: core.remote
+      input:
+         hosts: <% ctx(host) %>
+         cmd: <% item() %>
+      with: 
+         items: <% ctx(cmds) %>
+         concurrency: 1 
+      next:
+          - publish:
+              - RR: <% result() %>
+output:
+   - LocalResult: <% ctx(LR) %>
+   - RemoteResult: <% ctx(RR) %>

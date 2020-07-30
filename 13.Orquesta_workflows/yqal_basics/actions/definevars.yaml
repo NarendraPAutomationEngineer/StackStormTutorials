@@ -1,0 +1,14 @@
+---
+name: definevars
+runner_type: "orquesta"
+entry_point: "workflows/definevars.yaml"
+enabled: true
+parameters:
+      a:
+        type: integer
+        required: true
+      b: 
+        type: integer
+        required: true
+      c:
+        type: integer

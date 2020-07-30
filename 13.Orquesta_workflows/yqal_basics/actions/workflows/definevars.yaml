@@ -1,0 +1,56 @@
+version: 1.0
+description: simple flow just to define a scalar, list and dict from task
+input:
+   - a
+   - b
+   - c
+vars:
+   - ab: <% ctx(a) + ctx(b) %>
+   - cmds:
+       - uptime
+       - id
+tasks:
+  DummyTask:
+      action: core.noop
+      next:
+         - publish:
+              - s: "This is a scalar string"
+              - num1: 4
+              - num2: 5
+              - sum: <% ctx(num1) + ctx(num2) %>
+              - l1: <% list(1, "hi", 3.5, true, false) %>
+              - l2: <% list(4,5,6,1) %>
+              - l: <% ctx(l1) + ctx(l2) %>
+              - first_element: <% ctx(l)[0] %>
+              - last_element: <% ctx(l)[-1] %>
+              - d1: <% dict(a=>9, b=>true, c=>"hello") %>
+              - d2: <% dict(d=>false) %>
+              - d: <% ctx(d1) + ctx(d2) %>
+              - dk: <% ctx(d).keys() %>
+              - dv: <% ctx(d).values() %>
+              - di: <% ctx(d).items() %>
+              - mydict:
+                    x: ok
+                    y: bye
+              - mylist:
+                   - 1
+                   - 2
+                   - 3
+output:
+  - ab: <% ctx(ab) %>
+  - c: <% ctx(c) %>
+  - scalrop: <% ctx(s) %>
+  - sum: <% ctx(sum) %>
+  - lop: <% ctx(l) %>
+  - dop: <% ctx(d) %>
+  - dk: <% ctx(dk) %>
+  - dv: <% ctx(dv) %>
+  - di: <% ctx(di) %>
+  - mydict: <% ctx(mydict) %>
+  - mylist: <% ctx(mylist) %>
+  - mydicto: 
+        a: ok
+        b: not
+  - first_element: <% ctx(first_element) %>
+  - last_element: <% ctx(last_element) %>
+
