@@ -1,9 +1,0 @@
----
-name: uptimerl
-runner_type: "orquesta"
-entry_point: "workflows/uptimerl.yaml"
-enabled: true
-parameters:
-     hosts:
-       type: string
-       required: true

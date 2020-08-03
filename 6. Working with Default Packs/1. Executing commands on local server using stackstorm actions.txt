@@ -1,0 +1,5 @@
+st2 action execute core.local cmd="st2 --version"
+st2 run core.local cmd="st2 --version"
+
+st2 execution list
+st2 execution get 5f266e6805a8c5a4cfc688bf

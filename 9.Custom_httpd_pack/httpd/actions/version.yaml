@@ -1,6 +1,0 @@
----
-name:  version
-description: This action is used to get the httpd version
-runner_type: "local-shell-script"
-enabled: true
-entry_point: "version.sh"

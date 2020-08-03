@@ -1,6 +1,0 @@
-sshd service should up and running on remote servers or stackstorm nodes.
-
-We can find the status of sshd service using below command:
-   systemctl status sshd
-
-

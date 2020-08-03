@@ -1,6 +1,0 @@
----
-name:  isinstalled
-description: This action is used to verify httpd installation
-runner_type: "remote-shell-script"
-enabled: true
-entry_point: "isinstalled.sh"

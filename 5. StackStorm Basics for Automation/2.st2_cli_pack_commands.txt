@@ -1,0 +1,31 @@
+The syntax to manage StackStorm packs are :
+-------------------------------------------
+      st2 pack <….>   
+      st2 pack -h
+
+List all local packs or installed packs with your system:
+---------------------------------------------------------
+          st2 pack list
+Get detailed information about an installed pack:
+=================================================
+    st2 pack get <installed_pack_name>
+Notes:
+        Default output is table.
+        Use -j to get json output
+        Use -y to get yaml output
+
+
+StackStorm Community is Marinating some collection of ready-made packs
+Url:  https://exchange.stackstorm.org/
+
+Search a particular pack:
+-------------------------
+    StackStorm exchange
+    StackStorm WebUI
+    StackStorm CLI
+
+st2 pack search <pack_name>
+st2 pack get <pack_name>
+st2 pack show   <pack_name>
+st2 pack install  <pack_name>
+St2 pack remove <pack_name>
