@@ -1,0 +1,3 @@
+echo "Demo" | mail -s "Status of Httpd" dowithscripting@gmail.com
+ 
+echo "Demo" | mail -s "Status of Httpd" dowithscripting@gmail.com -A demo.txt
