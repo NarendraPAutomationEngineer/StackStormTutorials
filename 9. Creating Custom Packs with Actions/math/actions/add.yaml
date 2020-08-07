@@ -1,0 +1,15 @@
+---
+name: add
+runner_type: local-shell-script
+enabled: true
+entry_point: "add.sh"
+description: This is an addition action
+parameters:
+    num1:
+      type: integer
+      required: true
+      position: 0
+    num2:
+      type: integer
+      required: true
+      position: 1
