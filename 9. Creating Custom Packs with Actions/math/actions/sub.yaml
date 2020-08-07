@@ -1,0 +1,15 @@
+---
+name: sub
+runner_type: local-shell-script
+enabled: true
+entry_point: "sub.sh"
+description: This is a sub action
+parameters:
+    num1:
+      type: integer
+      required: true
+      position: 0
+    num2:
+      type: integer
+      required: true
+      position: 1

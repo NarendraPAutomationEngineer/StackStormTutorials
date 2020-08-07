@@ -1,0 +1,19 @@
+---
+ref: math
+name: math
+description: This pack is used to find the add and sub of two numbers.
+keywords:
+    - calculator
+    - add
+    - sub
+version: 3.2.0
+python_versions:
+  - "2"
+  - "3"
+#dependencies:
+    #- core
+author: Narendra P
+email: dowithscripting@gmail.com
+contributors:
+  - "John Doe1 <john.doe1@gmail.com>"
+  - "John Doe2 <john.doe2@gmail.com>"
