@@ -1,0 +1,10 @@
+---
+name: start
+runner_type: remote-shell-script
+entry_point: "start.sh"
+parameters:
+        sudo:
+           type: boolean
+           default: true
+           required: true
+           immutable: true

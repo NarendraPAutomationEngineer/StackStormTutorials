@@ -1,0 +1,4 @@
+---
+name: id
+runner_type: remote-shell-script
+entry_point: "id.sh"

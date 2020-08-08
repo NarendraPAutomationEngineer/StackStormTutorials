@@ -1,0 +1,20 @@
+---
+name: sendMail
+runner_type: local-shell-script
+entry_point: "sendMail.sh"
+description: simple action to send mail
+pack: gmail
+parameters:
+        Body:
+          type: string
+          required: true
+          position: 0
+        Subject:
+          type: string
+          required: true
+          position: 1
+        ToMail:
+          type: string
+          required: true
+          position: 2
+

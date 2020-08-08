@@ -1,0 +1,7 @@
+---
+name: isInstalled
+runner_type: remote-shell-script
+entry_point: "isInstalled.sh"
+description: Action to verify web server httpd 
+pack: httpd
+parameters: {}

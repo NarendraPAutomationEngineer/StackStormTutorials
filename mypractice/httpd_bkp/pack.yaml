@@ -1,0 +1,18 @@
+---
+ref: httpd
+name: httpd
+description: Simple httpd pack to verify httpd is installed or not, to find the version and status.
+keywords:
+    - httpd
+    - webserver
+version: 3.2.0
+python_versions:
+  - "2"
+  - "3"
+#dependencies:
+    #- core
+author: Narendra P
+email: dowithscripting@gmail.com
+contributors:
+  - "John Doe1 <john.doe1@gmail.com>"
+  - "John Doe2 <john.doe2@gmail.com>"

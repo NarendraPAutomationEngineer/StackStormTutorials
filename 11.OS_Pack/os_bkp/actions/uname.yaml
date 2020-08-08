@@ -1,0 +1,5 @@
+---
+name: uname
+runner_type: remote-shell-script
+entry_point: "uname.sh"
+parameters: {} 
