@@ -1,0 +1,12 @@
+---
+name:  stop
+description: This action is used to install httpd or apache2 
+runner_type: "remote-shell-script"
+enabled: true
+entry_point: "stop.sh"
+parameters:
+        sudo:
+          type: boolean
+          default: true
+          immutable: true
+          required: true

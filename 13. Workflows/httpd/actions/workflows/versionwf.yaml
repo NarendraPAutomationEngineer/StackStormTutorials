@@ -1,0 +1,42 @@
+version: 1.0
+description: A basic sequential workflow.
+input:
+  - hosts
+  - ToMail
+tasks:
+  IsHttpdInstalled:
+    action: core.remote
+    input:
+       hosts: <% ctx(hosts) %>
+       cmd: "which httpd"
+    next:
+       - when:  <% succeeded() %>
+         do: FindHttpdVersion
+       - when: <% failed() %>
+         do: SendMail
+         publish:
+            - Subject: "Status of httpd version on  <% ctx(hosts) %>"
+            - Body: "Httpd is not installed on this <% ctx(hosts) %>"
+
+  FindHttpdVersion:
+     action: core.remote
+     input:
+       hosts: <% ctx(hosts) %>
+       cmd: "httpd -v | grep version | cut -d ' ' -f 3"
+     next:
+       - when: <% succeeded() %>
+         do: SendMail
+         publish:
+            - Subject: "Status of httpd version on  <% ctx(hosts) %>"
+            - Body: "The version of httpd is - <% result().values().stdout %>"
+#       - when: <% failed() %>
+         
+             
+  SendMail:
+     action: gmail.sendMail
+     input:
+        Subject: <% ctx(Subject) %>
+        Body: <% ctx(Body) %>
+        ToMail: <% ctx(ToMail) %>
+        #output:
+
