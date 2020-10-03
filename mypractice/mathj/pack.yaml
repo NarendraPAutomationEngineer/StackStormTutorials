@@ -1,9 +1,11 @@
 ---
-ref: dummy
-name: dummy
-description: Simple dummy pack without sensors, rules, workflows and action.
+ref: mathj
+name: mathj
+description: This pack is used to find the add and sub of two numbers.
 keywords:
-    - dummy
+    - calculator
+    - add
+    - sub
 version: 3.2.0
 python_versions:
   - "2"

@@ -1,0 +1,11 @@
+---
+name: osname
+description: This action is used to find the os name of remote server(s)
+enabled: true
+runner_type: remote-shell-cmd
+entry_point: ""
+parameters:
+        cmd:
+          type: string
+          default: cat /etc/*release | grep -w "NAME" | cut -d= -f2
+          immutable: true

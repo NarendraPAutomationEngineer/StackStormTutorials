@@ -1,0 +1,13 @@
+---
+name: sub
+runner_type: python-script
+enabled: true
+entry_point: "sub.py"
+description: This is a sub action
+parameters:
+    num1:
+      type: integer
+      required: true
+    num2:
+      type: integer
+      required: true

@@ -1,0 +1,13 @@
+---
+name: add
+runner_type: python-script
+enabled: true
+entry_point: "add.py"
+description: This is an addition action
+parameters:
+    num1:
+      type: integer
+      required: true
+    num2:
+      type: integer
+      required: true

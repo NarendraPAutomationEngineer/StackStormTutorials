@@ -1,6 +1,6 @@
 ---
-ref: dummy
-name: dummy
+ref: mathp
+name: mathp
 description: Simple dummy pack without sensors, rules, workflows and action.
 keywords:
     - dummy

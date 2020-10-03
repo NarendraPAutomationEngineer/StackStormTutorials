@@ -1,9 +1,10 @@
 ---
-ref: dummy
-name: dummy
-description: Simple dummy pack without sensors, rules, workflows and action.
+ref: remote
+name: remote
+description: Simple pack to work with remote server.
 keywords:
-    - dummy
+    - uname
+    - osname
 version: 3.2.0
 python_versions:
   - "2"
