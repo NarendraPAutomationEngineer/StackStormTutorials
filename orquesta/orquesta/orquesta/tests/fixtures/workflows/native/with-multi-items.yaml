@@ -1,0 +1,12 @@
+version: 1.0
+  
+description: A workflow demonstrating multiple with items.
+
+input:
+  - members
+  - messages
+
+tasks:
+  task1:
+    with: member, message in <% zip(ctx(members), ctx(messages)) %>
+    action: core.echo message=<% item(member), item(message) %>

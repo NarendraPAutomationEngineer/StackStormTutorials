@@ -1,0 +1,46 @@
+version: 1.0
+
+description: A sample workflow with multiple cycles.
+
+input:
+  - count: 0
+
+tasks:
+  prep:
+    action: core.noop
+    next:
+      - when: <% succeeded() %>
+        do: task1
+  task1:
+    action: core.noop
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - proceed: false
+        do: task2
+  task2:
+    action: core.noop
+    next:
+      - when: <% succeeded() and not ctx().proceed %>
+        do: task3
+      - when: <% succeeded() and ctx().proceed %>
+        do: task5
+  task3:
+    action: core.noop
+    next:
+      - when: <% succeeded() %>
+        do: task4
+  task4:
+    action: core.noop
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - proceed: true
+        do: task2
+  task5:
+    action: core.noop
+    next:
+      - when: <% succeeded() and ctx().count < 2 %>
+        publish:
+          - count: <% ctx().count + 1 %>
+        do: task1

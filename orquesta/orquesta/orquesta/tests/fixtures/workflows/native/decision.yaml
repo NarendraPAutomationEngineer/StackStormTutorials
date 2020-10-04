@@ -1,0 +1,25 @@
+version: 1.0
+
+description: >
+  A sample workflow that demonstrates how to use conditions
+  to determine which path in the workflow to take.
+
+input:
+  - which
+
+tasks:
+  t1:
+    action: core.noop
+    next:
+      - when: <% succeeded() and ctx().which = "a" %>
+        do: a
+      - when: <% succeeded() and ctx().which = "b" %>
+        do: b
+      - when: <% succeeded() and not ctx().which in list(a, b) %>
+        do: c
+  a:
+    action: core.noop
+  b:
+    action: core.noop
+  c:
+    action: core.noop
