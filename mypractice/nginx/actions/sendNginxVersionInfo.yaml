@@ -1,0 +1,20 @@
+---
+name: sendNginxVersionInfo
+enabled: true
+runner_type: orquesta
+entry_point: workflows/sendNginxVersionInfo.yaml
+parameters:
+     hostname: 
+        type: string
+        required: true
+     username:
+        type: string
+        required: true
+     password:
+        type: string
+        required: true
+        secret: true
+     ToMail:
+        type: string
+        required: true             
+    

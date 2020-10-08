@@ -1,0 +1,50 @@
+version: 1.0
+input:
+  - hostname
+  - username
+  - password
+  - ToMail
+vars:
+  - BData: None
+
+tasks:
+  VerifyNginxInstallation:
+    action: core.remote
+    input:
+      cmd: "which nginx"
+      hosts: <% ctx(hostname) %>
+      username: <% ctx(username) %>
+      password: <% ctx(password) %>
+    next:
+      - when: <% succeeded() %>
+        do: 
+          - FindNginxVersion
+      - when: <% failed() %>
+        publish:
+          - BData:  "Sorry Nginx is not installed on server: <% ctx(hostname) %>"
+        do:
+          - SendMail
+
+  FindNginxVersion:
+    action:  core.remote
+    input:
+      cmd: "nginx -v 2>&1"
+      hosts: <% ctx(hostname) %>
+      username: <% ctx(username) %>
+      password: <% ctx(password) %>      
+    next: 
+      - do: 
+         - SendMail
+        publish:
+          - Result:  <% result().values() %>
+          - Result: <% ctx(Result)[0] %>
+          - BData: "The Nginx Version is <% ctx(Result).stdout %>"
+  SendMail: 
+    action: gmail.sendMail
+    input:
+      Body: <% ctx(BData) %>
+      Subject: "The Nginx Version info on <% ctx(hostname) %>"
+      ToMail: <% ctx(ToMail) %>
+
+output:
+  - NginxInfo: <% ctx(BData) %>
