@@ -1,0 +1,7 @@
+---
+name: getes
+runner_type: python-script
+enabled: true
+entry_point: "getes.py"
+description: This is an addition action
+parameters: {}

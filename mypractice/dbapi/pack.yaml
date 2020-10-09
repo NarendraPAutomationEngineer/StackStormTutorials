@@ -1,0 +1,17 @@
+---
+ref: dbapi
+name: dbapi
+description: Simple dummy pack without sensors, rules, workflows and action.
+keywords:
+    - dummy
+version: 3.2.0
+python_versions:
+  - "2"
+  - "3"
+#dependencies:
+    #- core
+author: Narendra P
+email: dowithscripting@gmail.com
+contributors:
+  - "John Doe1 <john.doe1@gmail.com>"
+  - "John Doe2 <john.doe2@gmail.com>"
